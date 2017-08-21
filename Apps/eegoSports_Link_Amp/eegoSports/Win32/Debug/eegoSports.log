@@ -1,0 +1,15 @@
+﻿Build started 23.02.2017 17:56:34.
+     1>Project "C:\Users\Medion\Documents\Bakkarbeit\lsl_stuff\eegoSports\eegoSports\eegoSports.vcxproj" on node 2 (Build target(s)).
+     1>CustomBuild:
+         Moc'ing mainwindow.h...
+         Das System kann den angegebenen Pfad nicht finden.
+         Uic'ing mainwindow.ui...
+         Das System kann den angegebenen Pfad nicht finden.
+         Rcc'ing mainwindow.qrc...
+         Das System kann den angegebenen Pfad nicht finden.
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppCommon.targets(170,5): error MSB6006: "cmd.exe" exited with code 3.
+     1>Done Building Project "C:\Users\Medion\Documents\Bakkarbeit\lsl_stuff\eegoSports\eegoSports\eegoSports.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.27
