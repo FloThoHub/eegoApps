@@ -1,0 +1,1 @@
+should be working with latest SDK, no license file needed
