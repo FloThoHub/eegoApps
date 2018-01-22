@@ -1,5 +1,7 @@
+Notice: After checking impedances you can start to stream EEG-data to LSL by just clicking the "stream EEG to LSL"-button.
+	In some cases the app is not responding anymore, but it's still streaming to LSL. 
+	If you want to check the impedances again, you have to restart the app.
 
-Requirements:
 
 To run the executable it is neccesary to:
 
