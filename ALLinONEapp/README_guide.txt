@@ -12,7 +12,7 @@ To run the executable it is neccesary to:
   "D:\Qt\5.8\winrt_x64_msvc2015\plugins\platforms"
 
 - in some Qt-versions the qwindows.dll and the qwindowsd.dll files are missing in the platforms folder,
-  just copy them from the files-folder them into ...\plugins\platforms and it should work.
+  just copy them from eegoApps\ALLinONEapp\qt_dll_files them into ...\plugins\platforms and it should work.
 
 
 Electrode Positions/Caps:
