@@ -1,3 +1,5 @@
+Sampling reate = 512. Options for changing sampling rate will be added in the future.
+
 
 Requirements:
 
