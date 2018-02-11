@@ -1,0 +1,17 @@
+﻿Build started 11.02.2018 13:31:29.
+     1>Project "C:\Users\flori\OneDrive\TUG\Bakkarbeit\SurfaceTest\LSLAPP_newSDK\LSLAPP\ImpedanceCheck_test\ImpedanceCheck_test\ImpedanceCheck_test.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\Users\flori\Documents\labstreaminglayer\build\install\lsl_Release\LSL\include /IC:\local\boost_1_66_0 /I.\GeneratedFiles /I. /IC:\Qt\Qt5.8.0\5.8\msvc2013\include /I.\GeneratedFiles\Debug /IC:\Qt\Qt5.8.0\5.8\msvc2013\include\QtCore /IC:\Qt\Qt5.8.0\5.8\msvc2013\include\QtGui /IC:\Qt\Qt5.8.0\5.8\msvc2013\include\QtWidgets /Z7 /nologo /W1 /WX- /Od /Oy- /D UNICODE /D WIN32 /D WIN64 /D QT_CORE_LIB /D QT_GUI_LIB /D QT_WIDGETS_LIB /Gm- /EHsc /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt impedancecheck_test.cpp
+         impedancecheck_test.cpp
+         Neither _UNICODE nor _MBCS has been defined. Default to _UNICODE.
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\flori\OneDrive\TUG\Bakkarbeit\SurfaceTest\LSLAPP_newSDK\LSLAPP\ImpedanceCheck_test\Win32\Debug\\ImpedanceCheck_test.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:C:\Qt\Qt5.8.0\5.8\msvc2013\lib qtmaind.lib Qt5Cored.lib Qt5Guid.lib Qt5Widgetsd.lib "C:\Users\flori\OneDrive\TUG\Bakkarbeit\SurfaceTest\LSLAPP\ImpedanceCheck_test\ImpedanceCheck_test\eego-SDK.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\flori\OneDrive\TUG\Bakkarbeit\SurfaceTest\LSLAPP_newSDK\LSLAPP\ImpedanceCheck_test\Win32\Debug\ImpedanceCheck_test.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\flori\OneDrive\TUG\Bakkarbeit\SurfaceTest\LSLAPP_newSDK\LSLAPP\ImpedanceCheck_test\Win32\Debug\ImpedanceCheck_test.lib" /MACHINE:X86 /SAFESEH Debug\moc_impedancecheck_test.obj
+         Debug\qrc_impedancecheck_test.obj
+         Debug\impedancecheck_test.obj
+         Debug\main.obj
+         ImpedanceCheck_test.vcxproj -> C:\Users\flori\OneDrive\TUG\Bakkarbeit\SurfaceTest\LSLAPP_newSDK\LSLAPP\ImpedanceCheck_test\Win32\Debug\ImpedanceCheck_test.exe
+     1>Done Building Project "C:\Users\flori\OneDrive\TUG\Bakkarbeit\SurfaceTest\LSLAPP_newSDK\LSLAPP\ImpedanceCheck_test\ImpedanceCheck_test\ImpedanceCheck_test.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:04.29
