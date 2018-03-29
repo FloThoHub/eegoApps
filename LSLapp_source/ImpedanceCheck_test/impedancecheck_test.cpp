@@ -27,10 +27,13 @@
 #include <QFileDialog>
 #include <QMessageBox>
 #include <QCloseEvent>
+#include <QInputDialog>
+
 
 using namespace lsl;
 using namespace eemagine::sdk;
 
+/*
 void ImpedanceCheck_test::setButton() 
 {
 	done = true;
@@ -39,7 +42,7 @@ void ImpedanceCheck_test::setButton()
 	stopEEG = true;
 
 }
-
+*/
 
 void ImpedanceCheck_test::enableEEG()
 {
@@ -66,6 +69,9 @@ void ImpedanceCheck_test::updateFramesize(int newframesize)
 void ImpedanceCheck_test::closeEvent(QCloseEvent *event)
 {
 	done = true;
+	closeALL = true;
+	streamImpLSL = false;
+	stopEEG = true;
 	closeEvent(event);
 }
 
@@ -90,10 +96,17 @@ void ImpedanceCheck_test::updateFontSize(int newfontsize)
 	NewFontSize = fontsize_slider->value();
 }
 
+void ImpedanceCheck_test::setSamplingRate(int idx)
+{
+
+	samplingRate = samplingBox->itemText(idx).toInt();
+}
+
+
+
 ImpedanceCheck_test::ImpedanceCheck_test(QWidget *parent)
 : QWidget(parent)
 {
-
 	//------------------------------------------------------------------------------------------------------------------------------------------------
 	//get positions and labels from the txt file
 	/*
@@ -102,6 +115,8 @@ ImpedanceCheck_test::ImpedanceCheck_test(QWidget *parent)
 	msgBox1.setText("Please make sure, that the 2D position in the .txt-file should have the following form:\n \n Fp1  82.7	32.28 \n Fpz  90  -0.1 \n Fp2       82.7 -32.38 \n \n there should be only blanks inbetween.");
 	msgBox1.exec();
 	*/
+
+
 	QFileDialog dialog(this);
 	dialog.setFileMode(QFileDialog::ExistingFile);
 	dialog.setWindowTitle("Select cap-postion file (.txt or .elc)");
@@ -111,12 +126,15 @@ ImpedanceCheck_test::ImpedanceCheck_test(QWidget *parent)
 	if (dialog.exec())
 		fileName = dialog.getOpenFileName();
 
+
+
 	string filestring = fileName.toStdString();
 	string line;
 	vector<string> text;
 	QVector<QString> subinfo;
 	QVector<QVector<QString>> info; // Channelnumber (Name, Xpos, Ypos)
 	ifstream myfile(filestring);
+
 
 
 	if (!myfile) //Always test the file open.
@@ -147,7 +165,7 @@ ImpedanceCheck_test::ImpedanceCheck_test(QWidget *parent)
 		subinfo.clear();
 
 	}
-
+	
 	//------------------------------------------------------------------------------------------------------------------------------------------------
 	//Generate GUI
 
@@ -156,6 +174,11 @@ ImpedanceCheck_test::ImpedanceCheck_test(QWidget *parent)
 	QDesktopWidget desktop;
 	QRect mainScreenSize = desktop.availableGeometry(desktop.primaryScreen());
 
+	if (fileName.isEmpty() && fileName.isNull()){
+
+		exit(EXIT_FAILURE);
+	}
+	
 	//z->setVisible(true);
 
 	z->setStyleSheet("background-color:gray;");
@@ -205,12 +228,14 @@ ImpedanceCheck_test::ImpedanceCheck_test(QWidget *parent)
 	connect(fontsize_slider, SIGNAL(valueChanged(int)),
 		this, SLOT(updateFontSize(int)));
 
+	/*
 	QPushButton *doneButton = new QPushButton(this);
 	doneButton->setText("Done");
 	doneButton->setParent(z);
 	doneButton->setGeometry(mainScreenSize.width()-200, mainScreenSize.height() - 200, 80, 40);
 	doneButton->setStyleSheet("QButton { background-color : green; color : black; }");
 	connect(doneButton, SIGNAL(clicked()), this, SLOT(setButton()));
+	*/
 
 	QPushButton *resetGUIButton = new QPushButton(this);
 	resetGUIButton->setText("Reset");
@@ -260,6 +285,7 @@ ImpedanceCheck_test::ImpedanceCheck_test(QWidget *parent)
 			
 			labels.append(new QLabel);
 			QString tmp = info.at(i).at(0);
+			channelLabels.push_back(info.at(i).at(0));
 			QString value = " inf";
 			
 			labels[i]->setText(QString("<font size=3>") + tmp +
@@ -277,14 +303,7 @@ ImpedanceCheck_test::ImpedanceCheck_test(QWidget *parent)
 		z->adjustSize();
 		z->show();
 		//---------------------------------------------------------------------------------------------------------------
-		/*
-		QMessageBox msgBox;
-		msgBox.setWindowTitle("Please notice!");
-		msgBox.setText("Please press the Done button before closing the app! \n (otherwise the app may continue running in the background)");
-		msgBox.exec();
 
-		ui.setupUi(this);
-		*/
 	
 	NewSpacerValue = 5;
 	Newframesize = 50;
@@ -364,7 +383,7 @@ ImpedanceCheck_test::ImpedanceCheck_test(QWidget *parent)
 			lsl::xml_element chns = impStream.desc().append_child("channels");
 			for (int k = 0; k < info.size(); k++)
 				chns.append_child("channel")
-				.append_child_value("label", info.at(k).at(0).toUtf8().constData())
+				.append_child_value("label", channelLabels.at(k).toUtf8().constData())
 				.append_child_value("unit", "Ohm")
 				.append_child_value("type", "Impedance");
 			//
@@ -442,7 +461,11 @@ ImpedanceCheck_test::ImpedanceCheck_test(QWidget *parent)
 			//starts EEG stream if button was clicked
 			if (stopEEG == false)
 			{
-				ImpedanceCheck_test::streamEEG(512);
+				bool ok;
+				samplingRate = QInputDialog::getInt(this, tr("Choose samplingrate"),
+					tr("Samplingrate:"), 128, 256, 512, 1024, &ok);
+
+				ImpedanceCheck_test::streamEEG(samplingRate);
 				streamImpLSL = true;//restart Impedance stream 
 
 				QMessageBox errorBox;
@@ -460,7 +483,7 @@ ImpedanceCheck_test::ImpedanceCheck_test(QWidget *parent)
 		errorBox.setWindowTitle("Error: Amp not connected");
 		errorBox.setText("Amp not found or licence file not present. Please connect the amplifier and make sure that the amp is turned on and a license file is present in 'Documents/eego/'");
 		errorBox.exec();
-
+		exit(EXIT_FAILURE);
 		qApp->quit();
 	}
 
@@ -469,6 +492,7 @@ ImpedanceCheck_test::ImpedanceCheck_test(QWidget *parent)
 	errorBox.setWindowTitle("LSL app");
 	errorBox.setText("Finished!");
 	errorBox.exec();
+	exit(EXIT_FAILURE);
 
 	qApp->quit();
 	
@@ -498,12 +522,12 @@ void ImpedanceCheck_test::streamEEG(int samplingRate)
 		std::vector<channel> channelList = eegStream->getChannelList();
 
 		// create data streaminfo and append some meta-data
-		lsl::stream_info data_info("EEGstream " + amp2->getSerialNumber(), "EEG", channelList.size() - 2, samplingRate, lsl::cf_float32, "eegoSports_" + amp2->getSerialNumber());
+		lsl::stream_info data_info("EEGstreamANTNeuro " + amp2->getSerialNumber(), "EEG", channelList.size() - 2, samplingRate, lsl::cf_float32, "eegoSports_" + amp2->getSerialNumber());
 		lsl::xml_element channels = data_info.desc().append_child("channels");
 
 		for (int k = 0; k < channelList.size() - 2; k++) {
 			channels.append_child("channel")
-				.append_child_value("label", "Ch" + k)
+				.append_child_value("label", channelLabels.at(k).toUtf8().constData())
 				.append_child_value("type", "EEG")
 				.append_child_value("unit", "microvolts");
 		}

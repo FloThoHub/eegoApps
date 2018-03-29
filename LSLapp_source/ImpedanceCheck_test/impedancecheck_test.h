@@ -4,6 +4,7 @@
 
 #include <QtWidgets/QWidget>
 #include <QSlider>
+#include <QComboBox>
 #include "ui_impedancecheck_test.h"
 
 #include <eemagine\sdk\factory.h>
@@ -34,7 +35,10 @@ private:
 	eemagine::sdk::amplifier* amp2;
 	eemagine::sdk::stream* impStream;
 	eemagine::sdk::stream* eegStream;
-	std::vector<std::string> channelLabels;
+	
+
+	QComboBox *samplingBox;
+
 	
 
 public:
@@ -48,7 +52,7 @@ public:
 	int NewSpacerValue;
 	int NewFontSize;
 	int samplingRate;
-
+	std::vector<QString> channelLabels;
 
 
 	void streamEEG(int samplingRate);
@@ -65,7 +69,7 @@ public:
 
 
 private slots:
-	void setButton();
+	//void setButton();
 	void resetGUIButton();
 	void updateFramesize(int newframesize);
 	void updateSpacerValue(int newspacervalue);
@@ -74,5 +78,10 @@ private slots:
 	void enableEEG();
 	void stopstreamEEG();
 	void closeEvent(QCloseEvent *event);
+
+public slots:
+	void setSamplingRate(int idx);
+
+
 
 };

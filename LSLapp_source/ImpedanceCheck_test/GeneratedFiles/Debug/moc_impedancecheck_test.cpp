@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_ImpedanceCheck_test_t {
-    QByteArrayData data[15];
-    char stringdata0[189];
+    QByteArrayData data[16];
+    char stringdata0[199];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -32,28 +32,29 @@ struct qt_meta_stringdata_ImpedanceCheck_test_t {
 static const qt_meta_stringdata_ImpedanceCheck_test_t qt_meta_stringdata_ImpedanceCheck_test = {
     {
 QT_MOC_LITERAL(0, 0, 19), // "ImpedanceCheck_test"
-QT_MOC_LITERAL(1, 20, 9), // "setButton"
-QT_MOC_LITERAL(2, 30, 0), // ""
-QT_MOC_LITERAL(3, 31, 14), // "resetGUIButton"
-QT_MOC_LITERAL(4, 46, 15), // "updateFramesize"
-QT_MOC_LITERAL(5, 62, 12), // "newframesize"
-QT_MOC_LITERAL(6, 75, 17), // "updateSpacerValue"
-QT_MOC_LITERAL(7, 93, 14), // "newspacervalue"
-QT_MOC_LITERAL(8, 108, 14), // "updateFontSize"
-QT_MOC_LITERAL(9, 123, 11), // "newfontsize"
-QT_MOC_LITERAL(10, 135, 9), // "enableEEG"
-QT_MOC_LITERAL(11, 145, 13), // "stopstreamEEG"
-QT_MOC_LITERAL(12, 159, 10), // "closeEvent"
-QT_MOC_LITERAL(13, 170, 12), // "QCloseEvent*"
-QT_MOC_LITERAL(14, 183, 5) // "event"
+QT_MOC_LITERAL(1, 20, 14), // "resetGUIButton"
+QT_MOC_LITERAL(2, 35, 0), // ""
+QT_MOC_LITERAL(3, 36, 15), // "updateFramesize"
+QT_MOC_LITERAL(4, 52, 12), // "newframesize"
+QT_MOC_LITERAL(5, 65, 17), // "updateSpacerValue"
+QT_MOC_LITERAL(6, 83, 14), // "newspacervalue"
+QT_MOC_LITERAL(7, 98, 14), // "updateFontSize"
+QT_MOC_LITERAL(8, 113, 11), // "newfontsize"
+QT_MOC_LITERAL(9, 125, 9), // "enableEEG"
+QT_MOC_LITERAL(10, 135, 13), // "stopstreamEEG"
+QT_MOC_LITERAL(11, 149, 10), // "closeEvent"
+QT_MOC_LITERAL(12, 160, 12), // "QCloseEvent*"
+QT_MOC_LITERAL(13, 173, 5), // "event"
+QT_MOC_LITERAL(14, 179, 15), // "setSamplingRate"
+QT_MOC_LITERAL(15, 195, 3) // "idx"
 
     },
-    "ImpedanceCheck_test\0setButton\0\0"
-    "resetGUIButton\0updateFramesize\0"
-    "newframesize\0updateSpacerValue\0"
-    "newspacervalue\0updateFontSize\0newfontsize\0"
-    "enableEEG\0stopstreamEEG\0closeEvent\0"
-    "QCloseEvent*\0event"
+    "ImpedanceCheck_test\0resetGUIButton\0\0"
+    "updateFramesize\0newframesize\0"
+    "updateSpacerValue\0newspacervalue\0"
+    "updateFontSize\0newfontsize\0enableEEG\0"
+    "stopstreamEEG\0closeEvent\0QCloseEvent*\0"
+    "event\0setSamplingRate\0idx"
 };
 #undef QT_MOC_LITERAL
 
@@ -72,23 +73,23 @@ static const uint qt_meta_data_ImpedanceCheck_test[] = {
 
  // slots: name, argc, parameters, tag, flags
        1,    0,   54,    2, 0x08 /* Private */,
-       3,    0,   55,    2, 0x08 /* Private */,
-       4,    1,   56,    2, 0x08 /* Private */,
-       6,    1,   59,    2, 0x08 /* Private */,
-       8,    1,   62,    2, 0x08 /* Private */,
+       3,    1,   55,    2, 0x08 /* Private */,
+       5,    1,   58,    2, 0x08 /* Private */,
+       7,    1,   61,    2, 0x08 /* Private */,
+       9,    0,   64,    2, 0x08 /* Private */,
       10,    0,   65,    2, 0x08 /* Private */,
-      11,    0,   66,    2, 0x08 /* Private */,
-      12,    1,   67,    2, 0x08 /* Private */,
+      11,    1,   66,    2, 0x08 /* Private */,
+      14,    1,   69,    2, 0x0a /* Public */,
 
  // slots: parameters
     QMetaType::Void,
+    QMetaType::Void, QMetaType::Int,    4,
+    QMetaType::Void, QMetaType::Int,    6,
+    QMetaType::Void, QMetaType::Int,    8,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::Int,    5,
-    QMetaType::Void, QMetaType::Int,    7,
-    QMetaType::Void, QMetaType::Int,    9,
     QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void, 0x80000000 | 13,   14,
+    QMetaType::Void, 0x80000000 | 12,   13,
+    QMetaType::Void, QMetaType::Int,   15,
 
        0        // eod
 };
@@ -99,14 +100,14 @@ void ImpedanceCheck_test::qt_static_metacall(QObject *_o, QMetaObject::Call _c, 
         ImpedanceCheck_test *_t = static_cast<ImpedanceCheck_test *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->setButton(); break;
-        case 1: _t->resetGUIButton(); break;
-        case 2: _t->updateFramesize((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 3: _t->updateSpacerValue((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 4: _t->updateFontSize((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 5: _t->enableEEG(); break;
-        case 6: _t->stopstreamEEG(); break;
-        case 7: _t->closeEvent((*reinterpret_cast< QCloseEvent*(*)>(_a[1]))); break;
+        case 0: _t->resetGUIButton(); break;
+        case 1: _t->updateFramesize((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 2: _t->updateSpacerValue((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 3: _t->updateFontSize((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 4: _t->enableEEG(); break;
+        case 5: _t->stopstreamEEG(); break;
+        case 6: _t->closeEvent((*reinterpret_cast< QCloseEvent*(*)>(_a[1]))); break;
+        case 7: _t->setSamplingRate((*reinterpret_cast< int(*)>(_a[1]))); break;
         default: ;
         }
     }

@@ -1,4 +1,4 @@
-﻿Build started 23.01.2018 15:17:35.
+﻿Build started 29.03.2018 12:55:44.
      1>Project "C:\Users\flori\OneDrive\TUG\Bakkarbeit\SurfaceTest\LSLAPP_newSDK\LSLAPP\ImpedanceCheck_test\ImpedanceCheck_test\ImpedanceCheck_test.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\local\boost_1_66_0 /IC:\Users\flori\Documents\labstreaminglayer\build\install\lsl_Release\LSL\include /I.\GeneratedFiles /I. /IC:\Qt\Qt5.8.0\5.8\msvc2013\include /I.\GeneratedFiles\Release /IC:\Qt\Qt5.8.0\5.8\msvc2013\include\QtCore /IC:\Qt\Qt5.8.0\5.8\msvc2013\include\QtGui /IC:\Qt\Qt5.8.0\5.8\msvc2013\include\QtWidgets /nologo /W1 /WX- /O2 /Oy- /D UNICODE /D WIN32 /D WIN64 /D QT_NO_DEBUG /D NDEBUG /D QT_CORE_LIB /D QT_GUI_LIB /D QT_WIDGETS_LIB /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt impedancecheck_test.cpp
@@ -9,9 +9,9 @@
          Release\moc_impedancecheck_test.obj
          Release\impedancecheck_test.obj
          Release\main.obj
-         ImpedanceCheck_test.vcxproj -> C:\Users\flori\OneDrive\TUG\Bakkarbeit\SurfaceTest\LSLAPP_newSDK\LSLAPP\ImpedanceCheck_test\Win32\Release\ImpedanceCheck_test.exe
-     1>Done Building Project "C:\Users\flori\OneDrive\TUG\Bakkarbeit\SurfaceTest\LSLAPP_newSDK\LSLAPP\ImpedanceCheck_test\ImpedanceCheck_test\ImpedanceCheck_test.vcxproj" (Build target(s)).
+     1>LINK : fatal error LNK1104: cannot open file 'C:\Users\flori\OneDrive\TUG\Bakkarbeit\SurfaceTest\LSLAPP_newSDK\LSLAPP\ImpedanceCheck_test\Win32\Release\\ImpedanceCheck_test.exe'
+     1>Done Building Project "C:\Users\flori\OneDrive\TUG\Bakkarbeit\SurfaceTest\LSLAPP_newSDK\LSLAPP\ImpedanceCheck_test\ImpedanceCheck_test\ImpedanceCheck_test.vcxproj" (Build target(s)) -- FAILED.
 
-Build succeeded.
+Build FAILED.
 
-Time Elapsed 00:00:04.43
+Time Elapsed 00:00:05.74
